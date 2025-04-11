@@ -69,3 +69,7 @@ Depois de se autenticar e fazer a requisição via postman, no console do log el
 
 ![imagem local](/imagem_readme/controller/app_yamal_controller_log_resultado.png)
 
+
+
+Repare que no consoler ele retorna todos os tipos de mensagem que eu configurei no metodo, por que no arquivo app.yml está como trace o mais permissivel dos levels
+
