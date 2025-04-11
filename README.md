@@ -59,7 +59,7 @@ Depois na minha classe AutorController eu irei habilitar o log com a anotação 
 E então em qual quer metodo eu posso adicionar mensagens como se fosse um System.out.print para que sejam capturadas no nosso console log, você pode configurar seus levels também:
 
 
-[img metodo]
+![imagem local](/imagem_readme/controller/classe_AutorController_metodo_get_com_log.png)
 
 
 
@@ -72,4 +72,31 @@ Depois de se autenticar e fazer a requisição via postman, no console do log el
 
 
 Repare que no consoler ele retorna todos os tipos de mensagem que eu configurei no metodo, por que no arquivo app.yml está como trace o mais permissivel dos levels
+
+
+Voce pode adicionar parametros no log:
+
+
+![imagem local](/imagem_readme/controller/classe_ClientController_metodo_POST_com_log.png)
+
+
+
+Depois de fazer uma requisição no Postman retorno no console root:
+
+
+
+![imagem local](/imagem_readme/controller/classe_ClientController_metodo_POST_com_log_retorno.png)
+
+
+
+Você também pode utilizar o log para lança exceptions, na classe GlobalExceptionHandle como ela captura qualquer exceção no nosso sistema, podemos utilizar o log em conjunto, exemplo:
+
+
+
+![imagem local](/imagem_readme/exception/log_com_exception.png)
+
+
+
+
+
 
