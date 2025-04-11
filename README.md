@@ -1,4 +1,4 @@
-![imagem local](/imagem_readme/logo.webp)
+![imagem local](/imagem_readme/logo.png)
 
 
 
@@ -28,4 +28,12 @@ No app yamal, iremos adicionar algumas propriedades para habilitar o log:
 
 
 ![imagem local](/imagem_readme/app_yamal.png)
+]
+
+
+A primeira propriedade "logging : file : name", ele irá servi para criar um arquivo de log, que nada mais é que um console de logs. Um conceito importante para se entender é sobre levels de logs, existem 5 levels: ERROR	Algo deu errado, precisa ser corrigido, WARN	Algo estranho aconteceu, mas continuou, INFO	Informação normal do fluxo da aplicação, DEBUG	Detalhes técnicos úteis pra desenvolvedores, TRACE	Mais detalhado ainda que o debug. Esses levels de logs seguem uma hierarquia em que se você utilizar um level mais permissivel ele e todos outros menos permissivel irão aparecer no console. Se por exemplo você configurar seu programa para que no console de log indique o level Warn, então só logs Warn e Erros iram aparecer:
+
+
+
+![imagem local](imagem_readme/app_yamal_log_warn.png)
 
