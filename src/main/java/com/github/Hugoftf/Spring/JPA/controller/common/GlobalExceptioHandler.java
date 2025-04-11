@@ -4,6 +4,7 @@ import com.github.Hugoftf.Spring.JPA.controller.dto.ErroCampo;
 import com.github.Hugoftf.Spring.JPA.controller.dto.ErroResposta;
 import com.github.Hugoftf.Spring.JPA.exceptions.OperacaoNaoPermitida;
 import com.github.Hugoftf.Spring.JPA.exceptions.RegistroDuplicadoException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptioHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -50,6 +52,8 @@ public class GlobalExceptioHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErroResposta handleErrosNaoTradados(RuntimeException e){
+        log.error("Erro inesperado {}", e);
+
         return new ErroResposta(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Ocorreu um erro não tratado", List.of());
     }

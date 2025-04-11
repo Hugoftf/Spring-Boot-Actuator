@@ -52,6 +52,8 @@ public class AutorController {
     })
     public ResponseEntity<Object> salvar(@RequestBody @Valid AutorDTO autorDTO){
 
+        log.info("Cadastrando novo autor {}", autorDTO.nome());
+
         try {
             Autor autorMapeado = autorMapper.toEntity(autorDTO);
             autorService.salvar(autorMapeado);
@@ -96,7 +98,10 @@ public class AutorController {
             @ApiResponse(responseCode = "400",description = "Autor possui livro cadastrado"),
     })
     public ResponseEntity<Object> deletarAutor(@PathVariable("id") String id){
-       try {
+
+        log.info("deletando autor por id {}", id);
+
+        try {
            var idColetado = UUID.fromString(id);
            Optional<Autor> autorOptional = autorService.obterDetalhes(idColetado);
 
@@ -124,12 +129,6 @@ public class AutorController {
             @RequestParam(value = "nome", required = false) String nome,
             @RequestParam(value = "nacionalidade", required = false) String nacionalidade
     ){
-        log.trace("Pesquisa autores trace");
-        log.debug("Pesquisa autores debug");
-        log.info("Pesquisa autores info");
-        log.warn("Pesquisa autores warn");
-        log.error("Pesquisa autores error");
-
 
         List<Autor> resultadoPesquisa = autorService.pesquisaByExample(nome,
                 nacionalidade);
