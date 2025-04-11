@@ -7,6 +7,7 @@
   - [Tecnologias Usadas](#Tecnologias-Usadas)
   - [Sobre](#Sobre)
   - [Inicio](#Inicio)
+  - [Logging](#Logging-Na-Prática)
   
 
 
@@ -28,7 +29,7 @@ No app yamal, iremos adicionar algumas propriedades para habilitar o log:
 
 
 ![imagem local](/imagem_readme/app_yamal.png)
-]
+
 
 
 A primeira propriedade "logging : file : name", ele irá servi para criar um arquivo de log, que nada mais é que um console de logs. Um conceito importante para se entender é sobre levels de logs, existem 5 levels: ERROR	Algo deu errado, precisa ser corrigido, WARN	Algo estranho aconteceu, mas continuou, INFO	Informação normal do fluxo da aplicação, DEBUG	Detalhes técnicos úteis pra desenvolvedores, TRACE	Mais detalhado ainda que o debug. Esses levels de logs seguem uma hierarquia em que se você utilizar um level mais permissivel ele e todos outros menos permissivel irão aparecer no console. Se por exemplo você configurar seu programa para que no console de log indique o level Warn, então só logs Warn e Erros iram aparecer:
@@ -36,4 +37,35 @@ A primeira propriedade "logging : file : name", ele irá servi para criar um arq
 
 
 ![imagem local](imagem_readme/app_yamal_log_warn.png)
+
+
+
+## Logging-Na-Prática
+
+
+A ideia de usar logs e para monitorar nosso sistema, metodos, etc. A melhor maneira é personalizando tipos de mensagem. Para que no console fique mais limpo, iremos adicionar um caminho até a camada que eu quero monitorar:
+
+
+![imagem local](imagem_readme/controller/app_yamal_controller.png)
+
+
+Depois na minha classe AutorController eu irei habilitar o log com a anotação @SLF4J:
+
+
+
+![imagem local](imagem_readme/controller/classe_AutorController_habilitando_log.png)
+
+
+E então em qual quer metodo eu posso adicionar mensagens como se fosse um System.out.print para que sejam capturadas no nosso console log, você pode configurar seus levels também:
+
+
+[img metodo]
+
+
+
+Depois de se autenticar e fazer a requisição via postman, no console do log ele retornará:
+
+
+
+![imagem local](/imagem_readme/controller/app_yamal_controller_log_resultado.png)
 
