@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +30,7 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping("autores")
 @Tag(name = "Autores")
+@Slf4j
 public class AutorController {
 
     public AutorService autorService;
@@ -122,6 +124,13 @@ public class AutorController {
             @RequestParam(value = "nome", required = false) String nome,
             @RequestParam(value = "nacionalidade", required = false) String nacionalidade
     ){
+        log.trace("Pesquisa autores trace");
+        log.debug("Pesquisa autores debug");
+        log.info("Pesquisa autores info");
+        log.warn("Pesquisa autores warn");
+        log.error("Pesquisa autores error");
+
+
         List<Autor> resultadoPesquisa = autorService.pesquisaByExample(nome,
                 nacionalidade);
 
